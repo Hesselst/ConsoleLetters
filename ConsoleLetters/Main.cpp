@@ -37,7 +37,7 @@ std::string ReturnBlockLetter(char letter)
 			" \\\__,_|\n" // make sure to write \ like \\\ if you want them to be printed
 			);
 	}
-	else
+	else if (letter == 'b')
 	{
 		return (
 			"_\n"
@@ -46,6 +46,19 @@ std::string ReturnBlockLetter(char letter)
 			"| '_ \\\ \n"
 			"| |_) |\n"
 			"|_.__ /\n"
+			);
+	}
+	else
+	{
+		return (
+			" ___\n"
+			"|__ \\\ \n"
+			"   ) |\n"
+			"  / / \n"
+			" |_|  \n"
+			" (_)  \n"
+      
+      
 			);
 	}
 }
