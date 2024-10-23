@@ -7,32 +7,10 @@
 int main()
 {
 	// This part is just for changing the console's color (;
-
-	// Change int k to whatever color you want
-	int k = 2;
-	/*
-	1 = Dark blue
-	2 = Dark green
-	3 = Dark cyan
-	4 = Dark red
-	5 = Dark purple
-	6 = Dark yellow
-	7 = Dark white ???
-	8 = Dark grey
-	9 = bright blue
-	10 = bright green
-	11 = Bright cyan
-	12 = Bright red
-	13 = Bright purple
-	14 = Bright yellow
-	15 = Bright white
-
-	If you go over 15 the background color will change and i won't write all colors up to 255 so you will have to experiment 
-	with that yourself 
-	*/
+	int consoleColor = ReturnConsoleColor();
 	HANDLE hConsole;
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, k);
+	SetConsoleTextAttribute(hConsole, consoleColor);
 
 	// Get the input from the user
 	std::string input;
@@ -46,6 +24,54 @@ int main()
 	}
 
 	return 0;
+}
+
+int ReturnConsoleColor()
+{
+	bool loopIsRunning = true;
+	std::string changeColorInput;
+	int changeColor;
+
+	while (loopIsRunning)
+	{
+
+		std::cout << "Do you want to change the color of the console? y/n" << std::endl;
+		std::getline(std::cin, changeColorInput);
+
+		changeColorInput = std::tolower(changeColorInput);
+
+		if (changeColorInput == "y")
+		{
+			try
+			{
+				std::cout << "What color do you want the console to be?\n1 = Darkblue\n2 = Dark green\n3 = Dark cyan\n4 = Dark red\n5 = Dark purple\n6 = Dark yellow\n7 = Dark white ? ? ?\n8 = Dark grey\n9 = bright blue\n10 = bright green\n11 = Bright cyan\n12 = Bright red\n13 = Bright purple\n14 = Bright yellow\n15 = Bright white\nIf you go over 15 the background color will change and i won't write all colors up to 255 so you will have to experiment with that yourself " << std::endl;
+				std::getline(std::cin, changeColorInput);
+				changeColor = std::stoi(changeColorInput);
+
+				if (changeColor < 0 || changeColor > 255) 
+				{
+					std::cout << "Please enter a number between 0 and 255" << std::endl;
+				}
+				else {
+					return changeColor;
+				}
+			}
+			catch (...) 
+			{
+				std::cerr << "An unexpected error occurred.\n";
+			}
+			return changeColor;
+		}
+		else if (changeColorInput == "n")
+		{
+			loopIsRunning = false;
+		}
+		else
+		{
+			std::cout << "Please enter a valid number" << std::endl;
+		}
+
+	}
 }
 
 // Returns a string
