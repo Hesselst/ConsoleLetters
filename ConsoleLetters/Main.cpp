@@ -6,24 +6,49 @@
 
 int main()
 {
-	// This part is just for changing the console's color (;
-	int consoleColor = ReturnConsoleColor();
-	HANDLE hConsole;
-	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, consoleColor);
+    bool mainLoopRunning = true;
+    char confirm = 'x';
 
-	// Get the input from the user
-	std::string input;
-	std::cout << "Type a word that you want to be displayed in the console here: ";
-	std::getline(std::cin, input);
+    while (mainLoopRunning)
+    {
+        MainLoop();
+        std::cout << "Do you want to use the program again? (y/n)" << std::endl;
+        std::cin >> confirm;
 
-	// Loop trough each letter of the input and make it print whatever returnblockletter function returns
-	for (char i : input)
-	{
-		std::cout << ReturnBlockLetter(i) << std::endl;
-	}
+        if (confirm == 'y')
+        {
+            continue;
+        }
+        else if (confirm == 'n')
+        {
+            mainLoopRunning = false;
+        }
+        else
+        {
+            std::cout << "Please only enter y or n!" << std::endl;
+        }
+    }
 
 	return 0;
+}
+
+void MainLoop()
+{
+    int consoleColor = ReturnConsoleColor();
+    HANDLE hConsole;
+    hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, consoleColor);
+
+    // Get the input from the user
+    std::string input;
+    std::cout << "Type a word that you want to be displayed in the console here: ";
+    std::getline(std::cin, input);
+
+    // Loop trough each letter of the input and make it print whatever returnblockletter function returns
+    for (char i : input)
+    {
+        std::cout << ReturnBlockLetter(i) << std::endl;
+    }
 }
 
 // Returns the color you want the console to be
