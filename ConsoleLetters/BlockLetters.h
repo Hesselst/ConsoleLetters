@@ -3,6 +3,7 @@
 
 struct BlockLetters
 {
+public:
 	BlockLetters();
 };
 

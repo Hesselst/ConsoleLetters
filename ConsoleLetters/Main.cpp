@@ -45,18 +45,19 @@ void MainLoop()
     std::getline(std::cin, input);
 
 
-    for (int j = 0; j < 6; j++)
+    for (int j = 0; j < 6; j++) // rows 
     {
         for (char i : input)
         {
             std::string letter = returns.ReturnLetter(i);
 
-            std::string* pLetter = &letter;
+            std::string& rLetter = letter;
             // TODO: Turn the .letter into a value with pointer or references
 
             // error C2297: '.*': not valid as right operand has type 'char'
-            std::cout << gBlockLetters.*pLetter[j][0];
+            std::cout << gBlockLetters.rLetter[j][0];
+            //std::cout << gBlockLetters.GetArray(rLetter, j); (CONCEPT)
         }
-        std::cout << "\n";
+        std::cout << "\n"; // After all letters index number have been printed, new line
     }
 }

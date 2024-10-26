@@ -4,6 +4,17 @@
 // Struct because im only storing arrays
 struct BlockLetters
 {
+
+    // New idea 
+    
+    
+    // std::string letter["a"][6][1];
+
+    // With this you can do letter[i][j][0]; for example so that might work 
+    // Just a lot more work but ill try it later
+
+
+
     std::string a[6][1];
     std::string b[6][1];
     /* still have to add these ... 
@@ -61,4 +72,12 @@ struct BlockLetters
         que[4][0] = " |_|  ";
         que[5][0] = " (_)  ";
     }
+
+    /* This is how the function would be
+    std::string GetArray(std::string inputLetter, int index)
+    {
+        return letter[inputLetter][index][1];
+    }
+
+    */
 };
