@@ -1,6 +1,9 @@
 #include "CommonIncludes.h"
 #include "Returns.h"
 
+
+
+// This function can also be combined with the GetArray function in BlockLetters.cpp
 std::string Returns::ReturnLetter(char letter)
 {
 	// tolower function so i dont have to worry about capital letters
@@ -15,6 +18,10 @@ std::string Returns::ReturnLetter(char letter)
 	{
 		return "b";
 	}
+    else if (letter == ' ')
+    {
+        return " ";
+    }
 	else
 	{
 		return "que";

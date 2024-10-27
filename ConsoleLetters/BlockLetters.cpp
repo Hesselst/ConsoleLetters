@@ -35,6 +35,10 @@ void BlockLetters::GetArray(std::string inputLetter, int index)
     {
         std::cout << b[index][0];
     }
+    else if (inputLetter == " ")
+    {
+        std::cout << "       ";
+    }
     else
     {
         std::cout << que[index][0];
