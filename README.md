@@ -6,3 +6,5 @@ Only tested on windows
 As you can see, it only works with A&B as of now, if you put any other letters in it will return a question mark
 
 ![Example screenshot 1](https://i.imgur.com/JRvc3SB.png)
+# Bugs and issues
+If you type a really long word or sentence it will look really weird in the console, i will fix this later. As of now only small words and sentences work
