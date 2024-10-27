@@ -26,7 +26,7 @@ std::string Returns::ReturnLetter(char letter)
 	}
 }
 
-int Returns::ReturnConsoleColor()
+int Returns::ReturnConsoleColor(void)
 {
     bool loopIsRunning = true;
     std::string changeColorInput;

@@ -28,11 +28,11 @@ int main()
         }
     }
 
-	return 0;
+    return 0;
 }
 
 
-void MainLoop()
+void MainLoop(void)
 {
     int consoleColor = returns.ReturnConsoleColor();
     HANDLE hConsole;
@@ -51,12 +51,7 @@ void MainLoop()
         {
             std::string letter = returns.ReturnLetter(i);
 
-            std::string& rLetter = letter;
-            // TODO: Turn the .letter into a value with pointer or references
-
-            // error C2297: '.*': not valid as right operand has type 'char'
-            std::cout << gBlockLetters.rLetter[j][0];
-            //std::cout << gBlockLetters.GetArray(rLetter, j); (CONCEPT)
+            gBlockLetters.GetArray(letter, j);
         }
         std::cout << "\n"; // After all letters index number have been printed, new line
     }

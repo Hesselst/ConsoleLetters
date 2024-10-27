@@ -4,20 +4,9 @@
 // Struct because im only storing arrays
 struct BlockLetters
 {
-
-    // New idea 
-    
-    
-    // std::string letter["a"][6][1];
-
-    // With this you can do letter[i][j][0]; for example so that might work 
-    // Just a lot more work but ill try it later
-
-
-
     std::string a[6][1];
     std::string b[6][1];
-    /* still have to add these ... 
+    /* still have to add these ...
     std::string c[6][1];
     std::string d[6][1];
     std::string e[6][1];
@@ -49,7 +38,7 @@ struct BlockLetters
     // Maybe later i will add numbers and symbols too but probably not 
     std::string que[6][1];
 
-    BlockLetters()
+    BlockLetters(void)
     {
         a[0][0] = "       ";
         a[1][0] = "       ";
@@ -73,11 +62,19 @@ struct BlockLetters
         que[5][0] = " (_)  ";
     }
 
-    /* This is how the function would be
-    std::string GetArray(std::string inputLetter, int index)
+    void GetArray(std::string inputLetter, int index)
     {
-        return letter[inputLetter][index][1];
+        if (inputLetter == "a")
+        {
+            std::cout << a[index][0];
+        }
+        else if (inputLetter == "b")
+        {
+            std::cout << b[index][0];
+        }
+        else
+        {
+            std::cout << que[index][0];
+        }
     }
-
-    */
 };

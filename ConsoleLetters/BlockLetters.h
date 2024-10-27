@@ -3,7 +3,7 @@
 
 struct BlockLetters
 {
-public:
-	BlockLetters();
+	BlockLetters(void);
+	void GetArray(std::string inputLetter, int index);
 };
 
