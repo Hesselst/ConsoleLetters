@@ -3,7 +3,7 @@
 class Returns
 {
 public:
-	int ReturnConsoleColor(void);
+	int ReturnConsoleColor();
 	std::string ReturnLetter(char letter);
 };
 

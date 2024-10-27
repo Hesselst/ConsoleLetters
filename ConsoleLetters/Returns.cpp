@@ -1,10 +1,5 @@
 #include "CommonIncludes.h"
-
-class Returns
-{
-	int ReturnConsoleColor();
-	std::string ReturnLetter(char letter);
-};
+#include "Returns.h"
 
 std::string Returns::ReturnLetter(char letter)
 {
