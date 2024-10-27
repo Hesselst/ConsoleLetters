@@ -11,6 +11,7 @@ int main()
     while (mainLoopRunning)
     {
         MainLoop();
+label:
         std::cout << "Do you want to use the program again? (y/n)" << std::endl;
         std::cin >> confirm;
 
@@ -25,6 +26,7 @@ int main()
         else
         {
             std::cout << "Please only enter y or n!" << std::endl;
+            goto label;
         }
     }
 
