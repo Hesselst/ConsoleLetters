@@ -4,7 +4,7 @@ class BlockLetters
 {
 public:
 	BlockLetters(void);
-	void GetArray(std::string inputLetter, int index);
+	void GetArray(char, int index);
 
     std::string a[6][1];
     std::string b[6][1];

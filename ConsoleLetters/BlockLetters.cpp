@@ -25,17 +25,17 @@ BlockLetters::BlockLetters(void)
     que[5][0] = " (_)  ";
 }
 
-void BlockLetters::GetArray(std::string inputLetter, int index)
+void BlockLetters::GetArray(char inputLetter, int index)
 {
-    if (inputLetter == "a")
+    if (inputLetter == 'a')
     {
         std::cout << a[index][0];
     }
-    else if (inputLetter == "b")
+    else if (inputLetter == 'b')
     {
         std::cout << b[index][0];
     }
-    else if (inputLetter == " ")
+    else if (inputLetter == ' ')
     {
         std::cout << "       ";
     }
