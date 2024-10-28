@@ -1,32 +1,41 @@
 #include "Main.h"
 
-BlockLetters gBlockLetters;
-Returns returns;
+static BlockLetters gBlockLetters;
+static Returns gReturns;
 
 int main()
 {
     bool mainLoopRunning = true;
-    char confirm = 'x';
+    std::string confirm;
 
     while (mainLoopRunning)
     {
         MainLoop();
-label:
-        std::cout << "Do you want to use the program again? (y/n)" << std::endl;
-        std::cin >> confirm;
+        bool confirmLoopRunning = true;
 
-        if (confirm == 'y')
+        while (confirmLoopRunning)
         {
-            continue;
-        }
-        else if (confirm == 'n')
-        {
-            mainLoopRunning = false;
-        }
-        else
-        {
-            std::cout << "Please only enter y or n!" << std::endl;
-            goto label;
+            std::cout << "Do you want to use the program again? (y/n)" << std::endl;
+            std::getline(std::cin, confirm);
+
+            // Convert input to lowercase
+            for (auto& c : confirm)
+            {
+                c = std::tolower(c);
+            }
+            if (confirm == "y")
+            {
+                confirmLoopRunning = false;
+            }
+            else if (confirm == "n")
+            {
+                mainLoopRunning = false;
+                confirmLoopRunning = false;
+            }
+            else
+            {
+                std::cout << "Please only enter y or n" << std::endl;
+            }
         }
     }
 
@@ -36,7 +45,7 @@ label:
 
 void MainLoop(void)
 {
-    int consoleColor = returns.ReturnConsoleColor();
+    int consoleColor = gReturns.ReturnConsoleColor();
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, consoleColor);
@@ -51,9 +60,9 @@ void MainLoop(void)
     {
         for (char i : input)
         {
-            std::string letter = returns.ReturnLetter(i);
+            //std::string letter = returns.ReturnLetter(i);
 
-            gBlockLetters.GetArray(letter, j);
+            gBlockLetters.GetArray(i, j);
         }
         std::cout << "\n"; // After all letters index number have been printed, new line
     }
