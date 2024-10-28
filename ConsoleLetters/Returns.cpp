@@ -4,7 +4,8 @@
 
 
 // This function can also be combined with the GetArray function in BlockLetters.cpp
-std::string Returns::ReturnLetter(char letter)
+
+/*std::string Returns::ReturnLetter(char letter)
 {
 	// tolower function so i dont have to worry about capital letters
 	letter = std::tolower(letter);
@@ -26,7 +27,7 @@ std::string Returns::ReturnLetter(char letter)
 	{
 		return "que";
 	}
-}
+}*/
 
 int Returns::ReturnConsoleColor(void)
 {
@@ -36,8 +37,7 @@ int Returns::ReturnConsoleColor(void)
 
     while (loopIsRunning)
     {
-        // This y/n stuff can get a rework. maybe ill rework it once im done
-        std::cout << "Do you want to change the color of the console? y/n" << std::endl;
+        std::cout << "\nDo you want to change the color of the console? y/n" << std::endl;
         std::getline(std::cin, changeColorInput);
 
         // Convert input to lowercase
@@ -58,8 +58,8 @@ int Returns::ReturnConsoleColor(void)
                         << "5 = Dark purple\n6 = Dark yellow\n7 = Dark white\n8 = Dark grey\n"
                         << "9 = Bright blue\n10 = Bright green\n11 = Bright cyan\n12 = Bright red\n"
                         << "13 = Bright purple\n14 = Bright yellow\n15 = Bright white\n"
-                        << "If you go over 15, the background color will change. "
-                        << "Experiment with that yourself up to 255." << std::endl;
+                        << "Colors over 13 and below 255 will change your background color." << std::endl;
+                    std::cout << "Please enter the number here: ";
 
                     std::getline(std::cin, changeColorInput);
                     // String to int function
@@ -71,6 +71,8 @@ int Returns::ReturnConsoleColor(void)
                     }
                     else
                     {
+                        innerLoopRunning = false;
+                        loopIsRunning = false;
                         return changeColor;
                     }
                 }
@@ -91,6 +93,7 @@ int Returns::ReturnConsoleColor(void)
         }
         else if (changeColorInput == "n")
         {
+            loopIsRunning = false;
             loopIsRunning = false;
         }
         else

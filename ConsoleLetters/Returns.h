@@ -4,6 +4,6 @@ class Returns
 {
 public:
 	int ReturnConsoleColor();
-	std::string ReturnLetter(char letter);
+	//std::string ReturnLetter(char letter);
 };
 
